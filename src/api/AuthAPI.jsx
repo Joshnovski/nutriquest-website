@@ -1,1 +1,1 @@
-export const LogiAPI = () => {};
+export const LoginAPI = () => {};
