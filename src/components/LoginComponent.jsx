@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { LoginAPI } from '../api/AuthAPI';
+import React, { useState } from "react";
+import { LoginAPI } from "../api/AuthAPI";
+import nutriquestLogo from "../assets/nutriquestLogo.png";
 import "../Sass/LoginComponent.scss";
 
 export default function LoginComponent() {
@@ -8,28 +9,31 @@ export default function LoginComponent() {
     try{
       let res = await LoginAPI(credentials.email, credentials.password);
       console.log(res?.user);
-    }
-    catch(err){
-    console.log(err);
+    } catch(err){
+      console.log(err);
     }
   };
   return (
     <div className="login-wrapper">
-        <h1>LoginComponent</h1>
+        <img src={nutriquestLogo} className="nutriquestLogo" />
+
+        <h1 className="heading">Sign in</h1>
+        <p className="sub-heading">Stay on top of your health and fitness journey</p>
+        
         <div className="auth-inputs">
           <input
             onChange={(event) =>
               setCredentials({...credentials, email: event.target.value })
             }
             className="common-input"
-            placeholder="Enter your Email"
+            placeholder="Email or Phone"
           />
           <input
             onChange={(event) =>
               setCredentials({...credentials, password: event.target.value })
             }
             className="common-input"
-            placeholder="Enter your Password"
+            placeholder="Password"
           />
         </div>
         <button onClick={login} className='login-btn'>

@@ -1,6 +1,73 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.login-wrapper {
+    background-color: #8AB267 !important;
+    height: 100vh;
+
+    .heading {
+        font-family: system-ui;
+        font-weight: 500;
+        color: rgba(0, 0, 0, 0.9);
+        margin-left: 200px;
+    }
+
+    .sub-heading{
+        margin-top: -20px;
+        font-family: system-ui;
+        margin-left: 200px;
+    }
+}
+
 .login-btn {
-    width: 150px; 
+    width: 300px; 
     height: 30px;
     cursor: pointer;
-    background-color: #212121;
+    background-color: #65874A;
+    border-radius: 30px;
+    outline: none;
+    border: none;
+    font-family: system-ui;
+    font-weight: 600;
+    color: #000000;
+    margin-top: 20px;
+    font-size: 18px;
+    margin-left: 225px;
 }
+
+.login-btn:hover {
+    background-color: white;
+}
+
+.auth-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 350px;
+    margin-left: 200px;
+    .common-input {
+        height: 30px;
+        padding: 10px;
+        background-color: #8AB267;
+        outline: none;
+        border: 1px solid #65874A;
+        border-radius: 5px;
+    }
+    .common-input:focus {
+        outline: 2px solid white;
+    
+    }
+    ::placeholder {
+        font-family: system-ui;
+        font-size: 16px;
+    }
+}
+
+.nutriquestLogo{
+    width: 80px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
