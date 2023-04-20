@@ -4,9 +4,14 @@ import "../Sass/LoginComponent.scss";
 
 export default function LoginComponent() {
   const [credentials, setCredentials] = useState({});
-  const login = () => {
-    let res = LoginAPI(credentials.email, credentials.password);
-    console.log(res);
+  const login = async () => {
+    try{
+      let res = await LoginAPI(credentials.email, credentials.password);
+      console.log(res?.user);
+    }
+    catch(err){
+    console.log(err);
+    }
   };
   return (
     <div className="login-wrapper">
