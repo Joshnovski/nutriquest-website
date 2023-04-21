@@ -17,6 +17,7 @@ export default function LoginComponent() {
     <div className="login-wrapper">
         <img src={nutriquestLogo} className="nutriquestLogo" />
 
+        <div className="login-wrapper-inner">
         <h1 className="heading">Sign in</h1>
         <p className="sub-heading">Stay on top of your health and fitness journey</p>
         
@@ -25,6 +26,7 @@ export default function LoginComponent() {
             onChange={(event) =>
               setCredentials({...credentials, email: event.target.value })
             }
+            type='email'
             className="common-input"
             placeholder="Email or Phone"
           />
@@ -32,6 +34,7 @@ export default function LoginComponent() {
             onChange={(event) =>
               setCredentials({...credentials, password: event.target.value })
             }
+            type='password'
             className="common-input"
             placeholder="Password"
           />
@@ -39,6 +42,7 @@ export default function LoginComponent() {
         <button onClick={login} className='login-btn'>
           Log in to NutriQuest
         </button>
+        </div>
     </div>
   )
 }
