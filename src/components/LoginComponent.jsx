@@ -3,15 +3,17 @@ import { LoginAPI } from "../api/AuthAPI";
 import nutriquestLogo from "../assets/nutriquestLogo.png";
 import "../Sass/LoginComponent.scss";
 import GoogleButton from "react-google-button";
+import { toast } from "react-toastify";
 
 export default function LoginComponent() {
   const [credentials, setCredentials] = useState({});
   const login = async () => {
     try{
       let res = await LoginAPI(credentials.email, credentials.password);
-      toast.success("Signed In to Linkedin!");
+      toast.success("Signed In to NutriQuest");
     } catch(err){
       console.log(err);
+      toast.error("Incorrect Email or Password");
     }
   };
   return (
