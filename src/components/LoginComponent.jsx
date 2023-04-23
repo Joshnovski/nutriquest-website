@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { LoginAPI } from "../api/AuthAPI";
+import { LoginAPI, GoogleSignInAPI } from "../api/AuthAPI";
 import nutriquestLogo from "../assets/nutriquestLogo.png";
 import "../Sass/LoginComponent.scss";
 import GoogleButton from "react-google-button";
@@ -15,6 +15,11 @@ export default function LoginComponent() {
       console.log(err);
       toast.error("Incorrect Email or Password");
     }
+  };
+
+  const googleSignIn = () => {
+    let response = GoogleSignInAPI();
+    console.log(response);
   };
   return (
     <div className="login-wrapper">
@@ -47,13 +52,8 @@ export default function LoginComponent() {
         </div>
         <hr class="hr-text" data-content="or"/>
         <div className = "google-btn-container">
-          <GoogleButton
-            className="button" 
-            onClick={() => {
-              console.log("Google button clicked");
-            }}
-          />
-
+          <GoogleButton className="button" onClick={googleSignIn} />
+          
           <p className="go-to-signup">
             New to NutriQuest? <span className="join-now">Join now</span>
           </p>
