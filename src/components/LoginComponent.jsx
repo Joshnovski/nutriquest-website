@@ -3,9 +3,11 @@ import { LoginAPI, GoogleSignInAPI } from "../api/AuthAPI";
 import nutriquestLogo from "../assets/nutriquestLogo.png";
 import "../Sass/LoginComponent.scss";
 import GoogleButton from "react-google-button";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 export default function LoginComponent() {
+  let navigate = useNavigate();
   const [credentials, setCredentials] = useState({});
   const login = async () => {
     try{
@@ -50,12 +52,12 @@ export default function LoginComponent() {
             Sign in to NutriQuest
           </button>
         </div>
-        <hr class="hr-text" data-content="or"/>
+        <hr className="hr-text" data-content="or"/>
         <div className = "google-btn-container">
           <GoogleButton className="button" onClick={googleSignIn} />
           
           <p className="go-to-signup">
-            New to NutriQuest? <span className="join-now">Join now</span>
+            New to NutriQuest? <span className="join-now" onClick={() => navigate('/Register')}>Join now</span>
           </p>
         </div>
     </div>
