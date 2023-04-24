@@ -13,6 +13,7 @@ export default function LoginComponent() {
     try{
       let res = await LoginAPI(credentials.email, credentials.password);
       toast.success("Signed In to NutriQuest");
+      navigate("/home");
     } catch(err){
       console.log(err);
       toast.error("Incorrect Email or Password");
@@ -21,7 +22,7 @@ export default function LoginComponent() {
 
   const googleSignIn = () => {
     let response = GoogleSignInAPI();
-    console.log(response);
+    navigate("/home");
   };
   return (
     <div className="login-wrapper">
