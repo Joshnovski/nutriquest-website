@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "antd": "^5.4.5",
     "firebase": "^9.20.0",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
