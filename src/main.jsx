@@ -5,7 +5,7 @@ import { router } from './routes'
 import { app, auth } from './firebaseConfig';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import './index.css'
+import './index.scss'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
