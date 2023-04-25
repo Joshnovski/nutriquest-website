@@ -11,7 +11,7 @@ export default function Login() {
   useEffect(() => {
     onAuthStateChanged(auth, res => {
       if (res?.accessToken){
-        navigate('/home')
+        navigate('/home');
       }
       else{
         setLoading(false);

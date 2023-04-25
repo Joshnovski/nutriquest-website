@@ -7,7 +7,10 @@ body{
     background-color: #8AB267 !important;
     height: 100vh;
     .login-wrapper-inner{
-        margin-left:200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     .heading {
@@ -110,7 +113,6 @@ body{
       position: relative;
       display: inline-block;
       color: #65874A;
-  
       padding: 0 0.5em;
       line-height: 1.5em;
       // this is really the only tricky part, you need to specify the background color of the container element...
@@ -120,7 +122,10 @@ body{
   }
   
   .google-btn-container {
-    margin-left: 255px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   
+    align-items: center;
 
     .google-btn {
         width: 300px !important
