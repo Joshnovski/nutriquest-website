@@ -40,6 +40,20 @@ body{
 
     }
 
+    .heading-register {
+        font-family: system-ui;
+        font-weight: 500;
+        font-size: 25px;
+        color: white;
+        margin-left: 67px;
+        margin-right: 50px;
+
+        .name-color {
+            color: #8AB267;
+        }
+
+    }
+
     .sub-heading{
         margin-top: -20px;
         font-family: system-ui;
@@ -152,10 +166,9 @@ body{
         }
     
         .go-to-signup {
-            margin-left: 30px;
+            margin-left: 11px;
             font-size: 14px;
         }
-    
     }
     
     .join-now:hover {

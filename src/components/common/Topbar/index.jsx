@@ -1,10 +1,12 @@
 import React from 'react';
 import nutriquestLogo from '../../../assets/nutriquestLogo.png';
 import './index.scss';
-import { AiFillHome, AiFillMessage } from 'react-icons/ai';
-import { FaUser, FaBell } from 'react-icons/fa';
-import { BsFillBriefcaseFill } from 'react-icons/bs';
+import { AiFillHome} from 'react-icons/ai';
+import { FaUser} from 'react-icons/fa';
+import { IoMdQrScanner } from 'react-icons/io';
+import { BsCalculatorFill } from 'react-icons/bs';
 import { GoSearch } from 'react-icons/go';
+import { GiWeightLiftingUp } from 'react-icons/gi';
 import userGrey from '../../../assets/userGrey.png';
 import { useNavigate } from 'react-router-dom';
 
@@ -20,11 +22,11 @@ export default function Topbar() {
       <GoSearch size = {23} className='react-icon'/>
       <AiFillHome size = {26} className='react-icon' onClick={() => goToRoute('/home')}/>
       <FaUser size = {23} className='react-icon' onClick={() => goToRoute('/profile')}/>
-      <BsFillBriefcaseFill size = {26}  className='react-icon'/>
-      <AiFillMessage size = {26} className='react-icon'/>
-      <FaBell size = {23} className='react-icon'/>
+      <BsCalculatorFill size = {26}  className='react-icon'/>
+      <IoMdQrScanner size = {30} className='react-icon'/>
+      <GiWeightLiftingUp size = {28} className='react-icon'/>
     </div>
     <img className='userGrey' src={userGrey} alt='userGrey'/>
   </div>
   );
-}
+} 

@@ -6,7 +6,7 @@ import { auth } from '../firebaseConfig';
 import Loader from '../components/common/Loader';
 
 export default function Login() {
-  const [loading, setLoading] = useState(true) //Creating a state
+  const [loading, setLoading] = useState(true);
   let navigate = useNavigate();
   useEffect(() => {
     onAuthStateChanged(auth, res => {
@@ -18,6 +18,6 @@ export default function Login() {
       }
     });
 }, []);
-  return loading ? <Loader/> : <LoginComponent />; //If loading is true show loader
+  return loading ? <Loader/> : <LoginComponent />;
 }
 
