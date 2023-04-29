@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { RegisterAPI, GoogleSignInAPI } from "../api/AuthAPI";
+import { postUserData } from "../api/FirestoreAPI";
 import nutriquestLogo from "../assets/nutriquestLogo.png";
 import "../Sass/LoginComponent.scss";
 import GoogleButton from "react-google-button";
@@ -9,10 +10,11 @@ import { toast } from "react-toastify";
 export default function RegisterComponent() {
   let navigate = useNavigate();
   const [credentials, setCredentials] = useState({});
-  const login = async () => {
+  const register = async () => {
     try{
       let res = await RegisterAPI(credentials.email, credentials.password);
       toast.success("Account Created!");
+      postUserData({name: credentials.name, email: credentials.email})
       navigate('/home');
       localStorage.setItem("userEmail", res.user.email);
     } catch(err){
@@ -34,6 +36,14 @@ export default function RegisterComponent() {
               
               <div className="auth-inputs">
                 <input
+                    onChange={(event) =>
+                      setCredentials({...credentials, name: event.target.value })
+                    }
+                    type='text'
+                    className="common-input"
+                    placeholder="First and Last Name"
+                  />
+                <input
                   onChange={(event) =>
                     setCredentials({...credentials, email: event.target.value })
                   }
@@ -50,7 +60,7 @@ export default function RegisterComponent() {
                   placeholder="Password (6 or more characters)"
                 />
               </div>
-              <button onClick={login} className='login-btn'>
+              <button onClick={register} className='login-btn'>
                 Join NutriQuest
               </button>
             </div>

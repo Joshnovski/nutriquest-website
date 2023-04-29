@@ -2,10 +2,10 @@ import React from 'react';
 import "../Sass/HomeComponent.scss";
 import PostStatus from './common/PostUpdate';
 
-export default function HomeComponent() {
+export default function HomeComponent({currentUser}) {
   return (
-    <div>
-      <PostStatus/>
+    <div className='home-component'>
+      <PostStatus currentUser = {currentUser}/>
     </div>
   );
 }

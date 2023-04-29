@@ -18,7 +18,7 @@ body{
 .login-wrapper {
     background-color: #343434 !important;
     width: 450px;
-    height: 470px;
+    min-height: auto;
     border-radius: 10px;
     margin: 10px 250px;
     justify-content: center;
