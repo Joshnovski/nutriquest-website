@@ -1,0 +1,13 @@
+.profile-card {
+    width: auto;
+    height: 50vh;
+    background-color: #343434;
+    margin: 30px;
+    border-radius: 5px;
+
+    .username{
+        font-family: system-ui;
+        color: white;
+        font-size: 24px;
+    }
+}
