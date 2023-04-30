@@ -1,13 +1,54 @@
 .profile-card {
-    width: auto;
-    height: 50vh;
-    background-color: #343434;
-    margin: 30px;
-    border-radius: 5px;
+  width: auto;
+  height: auto;
+  background-color: #343434;
+  margin: 30px;
+  border-radius: 5px;
+  padding: 20px;
+  position: relative;
 
-    .username{
-        font-family: system-ui;
-        color: white;
-        font-size: 24px;
+  .save-container {
+    display: flex;
+    justify-content: center;
+  }
+  .save-btn {
+    width: 350px;
+    height: 40px;
+    cursor: pointer;
+    background-color: #5e5e5e;
+    border-radius: 50px;
+    outline: none;
+    border: none;
+    font-family: system-ui;
+    font-weight: 600;
+    color: white;
+    font-size: 16px;
+    margin-top: 20px;
+  }
+
+  .edit-btn {
+    position: absolute;
+    right: 20px;
+    button {
+      background-color: #65874a;
+      font-family: system-ui;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
     }
+  }
+  .userName {
+    font-family: system-ui;
+    color: white;
+    font-size: 24px;
+    font-weight: 600;
+  }
+  .userEmail {
+    margin-top: -20px;
+    color: white;
+  }
+  .userHeadline {
+    color: white;
+    font-family: system-ui;
+  }
 }
