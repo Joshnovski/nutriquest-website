@@ -1,37 +1,41 @@
 .posts-card {
-    width: 700px;
-    min-height: auto;
-    background-color: #343434;
-    margin-top: 30px;
-    border: 3px solid #474747;
-    border-radius: 7px;
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 20px;
+  width: 700px;
+  min-height: auto;
+  background-color: #343434;
+  margin-top: 30px;
+  border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
 
-    .name {
-        font-family: system-ui;
-        font-size: 14px;
-        color: #C0c0c0;
-        font-weight: 600;
-        margin: 10px 0 0 10px;
-    }
-    
-    .timestamp {
-        font-family: system-ui;
-        font-size: 12px;
-        color: #C0c0c0;
-        font-weight: 400;
-        margin: 0px 0 0 10px;
-    }
-}
-
-
-.status {
-    margin: 10px 0 0 10px;
-    text-align: left;
+  .name {
     font-family: system-ui;
     font-size: 14px;
-    font-weight: 400;
+    color: #8ab267;
+    font-weight: 600;
+    margin: 10px 0 0 10px;
+    cursor: pointer;
+  }
+
+  .name:hover {
+    text-decoration: underline;
     color: white;
+  }
+
+  .timestamp {
+    font-family: system-ui;
+    font-size: 12px;
+    color: #c0c0c0;
+    font-weight: 400;
+    margin: 0px 0 0 10px;
+  }
+}
+
+.status {
+  margin: 10px 0 0 10px;
+  text-align: left;
+  font-family: system-ui;
+  font-size: 14px;
+  font-weight: 400;
+  color: white;
 }

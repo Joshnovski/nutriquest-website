@@ -1,178 +1,172 @@
-body{
-    margin: 0;
-    padding: 0;
-    background-color: #8AB267 !important;
-    height: 200px;
-    .nutriquestLogo{
-        width: 60px;
-        margin-left: 20px;
-        margin-top: 20px;
-    }
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #8ab267 !important;
+  height: 200px;
+  .nutriquestLogo {
+    width: 60px;
+    margin-left: 20px;
+    margin-top: 20px;
+  }
 }
 .block-positioning {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.login-wrapper {
+  background-color: #343434 !important;
+  width: 450px;
+  min-height: auto;
+  border-radius: 10px;
+  margin: 10px 250px;
+  justify-content: center;
+  align-items: center;
+
+  .login-wrapper-inner {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-.login-wrapper {
-    background-color: #343434 !important;
-    width: 450px;
-    min-height: auto;
-    border-radius: 10px;
-    margin: 10px 250px;
+    color: #c0c0c0;
+  }
+
+  .heading {
+    font-family: system-ui;
+    font-weight: 500;
+    color: white;
+    margin-right: 224px;
+  }
+
+  .heading-register {
+    font-family: system-ui;
+    font-weight: 500;
+    font-size: 25px;
+    color: white;
+    margin-left: 67px;
+    margin-right: 50px;
+
+    .name-color {
+      color: #8ab267;
+    }
+  }
+
+  .sub-heading {
+    margin-top: -20px;
+    font-family: system-ui;
+  }
+
+  .login-btn {
+    width: 350px;
+    height: 40px;
+    cursor: pointer;
+    background-color: #5e5e5e;
+    border-radius: 50px;
+    outline: none;
+    border: none;
+    font-family: system-ui;
+    font-weight: 600;
+    color: white;
+    font-size: 16px;
+    margin-top: 20px;
+  }
+
+  .login-btn:hover {
+    background-color: white;
+    color: #343434;
+  }
+
+  .auth-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 350px;
+
+    .common-input {
+      height: 30px;
+      padding: 10px;
+      background-color: #343434;
+      outline: none;
+      border: 1px solid #5e5e5e;
+      color: #c0c0c0;
+      border-radius: 5px;
+      font-size: 16px;
+      margin: 8px 0px;
+    }
+    .common-input:focus {
+      outline: 2px solid white;
+    }
+
+    .common-input:hover {
+      outline: 2px solid white;
+    }
+
+    ::placeholder {
+      font-family: system-ui;
+      font-size: 16px;
+      color: #808080;
+    }
+  }
+
+  .hr-text {
+    line-height: 1em;
+    position: relative;
+    outline: 0;
+    border: 0;
+    color: #65874a;
+    text-align: center;
+    height: 1.5em;
+    opacity: 1;
+    &:before {
+      content: "";
+      // use the linear-gradient for the fading effect
+      // use a solid background color for a solid bar
+      background: linear-gradient(to right, transparent, #5e5e5e, transparent);
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 100%;
+      height: 1px;
+    }
+    &:after {
+      content: attr(data-content);
+      position: relative;
+      display: inline-block;
+      color: #5e5e5e;
+      padding: 0 0.5em;
+      line-height: 1.5em;
+      // this is really the only tricky part, you need to specify the background color of the container element...
+      color: #5e5e5e;
+      background-color: #343434;
+    }
+  }
+
+  .google-btn-container {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: #c0c0c0;
 
-    .login-wrapper-inner{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        color: #C0c0c0;
+    .google-btn {
+      width: 300px !important;
     }
 
-    .heading {
-        font-family: system-ui;
-        font-weight: 500;
-        color: white;
-        margin-right: 224px;
-
+    .join-now {
+      color: #8ab267;
+      font-family: system-ui;
+      cursor: pointer;
+      text-decoration: underline;
     }
 
-    .heading-register {
-        font-family: system-ui;
-        font-weight: 500;
-        font-size: 25px;
-        color: white;
-        margin-left: 67px;
-        margin-right: 50px;
+    .go-to-signup {
+      margin-left: 11px;
+      font-size: 14px;
+    }
+  }
 
-        .name-color {
-            color: #8AB267;
-        }
-
-    }
-
-    .sub-heading{
-        margin-top: -20px;
-        font-family: system-ui;
-
-    }
-
-    .login-btn {
-        width: 350px; 
-        height: 40px;
-        cursor: pointer;
-        background-color: #5e5e5e;
-        border-radius: 50px;
-        outline: none;
-        border: none;
-        font-family: system-ui;
-        font-weight: 600;
-        color: white;
-        font-size: 16px;
-        margin-top: 20px;
-    
-    }
-    
-    .login-btn:hover {
-        background-color: white;
-        color: #343434;
-    }
-    
-    .auth-inputs {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        width: 350px;
-    
-        .common-input {
-            height: 30px;
-            padding: 10px;
-            background-color: #343434;
-            outline: none;
-            border: 1px solid #5e5e5e;
-            color: #C0c0c0;
-            border-radius: 5px;
-            font-size: 16px;
-            margin: 8px 0px;
-        }
-        .common-input:focus {
-            outline: 2px solid white;
-        
-        }
-    
-        .common-input:hover {
-            outline: 2px solid white;
-        }
-    
-        ::placeholder {
-            font-family: system-ui;
-            font-size: 16px;
-            color: #808080
-        }
-    }
-    
-    .hr-text {
-        line-height: 1em;
-        position: relative;
-        outline: 0;
-        border: 0;
-        color: #65874A;
-        text-align: center;
-        height: 1.5em;
-        opacity: 1;
-        &:before {
-        content: "";
-        // use the linear-gradient for the fading effect
-        // use a solid background color for a solid bar
-        background: linear-gradient(to right, transparent, #5e5e5e, transparent);
-        position: absolute;
-        left: 0;
-        top: 50%;
-        width: 100%;
-        height: 1px;
-        }
-        &:after {
-        content: attr(data-content);
-        position: relative;
-        display: inline-block;
-        color: #5e5e5e;
-        padding: 0 0.5em;
-        line-height: 1.5em;
-        // this is really the only tricky part, you need to specify the background color of the container element...
-        color: #5e5e5e;
-        background-color: #343434;
-        }
-    }
-    
-    .google-btn-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;   
-        align-items: center;
-        color: #C0c0c0;
-    
-        .google-btn {
-            width: 300px !important
-        }
-    
-        .join-now {
-            color: #5e5e5e;
-            font-family: system-ui;
-            cursor: pointer;
-            text-decoration: underline;
-        }
-    
-        .go-to-signup {
-            margin-left: 11px;
-            font-size: 14px;
-        }
-    }
-    
-    .join-now:hover {
-        color: White;
-    }
+  .join-now:hover {
+    color: White;
+  }
 }
-

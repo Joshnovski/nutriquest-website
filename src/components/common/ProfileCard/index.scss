@@ -6,6 +6,25 @@
   border-radius: 5px;
   padding: 20px;
   position: relative;
+  .profile-info {
+    display: flex;
+    justify-content: space-between;
+    .right-info {
+      margin-top: 25px;
+      margin-right: 20px;
+      .college,
+      .company {
+        font-family: system-ui;
+        color: white;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 30px;
+      }
+      .company {
+        margin-top: -15px;
+      }
+    }
+  }
 
   .save-container {
     display: flex;
@@ -39,16 +58,21 @@
   }
   .userName {
     font-family: system-ui;
-    color: white;
+    color: #8ab267;
     font-size: 24px;
     font-weight: 600;
   }
-  .userEmail {
-    margin-top: -20px;
-    color: white;
-  }
+
   .userHeadline {
     color: white;
     font-family: system-ui;
+    font-size: 16px;
+    margin-top: -25px;
+    width: 320px;
+    line-height: 20px;
+  }
+
+  .location {
+    color: #c0c0c0;
   }
 }

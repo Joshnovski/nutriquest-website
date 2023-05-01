@@ -1,6 +1,6 @@
-import React, {useMemo, useState} from 'react';
-import { useNavigate } from 'react-router-dom';
-import { onLogout } from '../../../api/AuthAPI';
+import React, { useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { onLogout } from "../../../api/AuthAPI";
 import { getCurrentUser } from "../../../api/FirestoreAPI";
 import Button from "../Button";
 import "./index.scss";
@@ -12,19 +12,7 @@ export default function ProfilePopup() {
     getCurrentUser(setCurrentUser);
   }, []);
   return (
-    <div className='poppup-card'>
-      <p className="name">{currentUser?.name}</p>
-      <p className="headline">{currentUser?.headline}</p>
-      <Button
-        title="View Profile"
-        onClick={() =>
-          navigate("/profile", {
-            state: {
-              id: currentUser?.id,
-            },
-          })
-        }
-      />
+    <div className="poppup-card">
       <Button title="Log out" onClick={onLogout} />
     </div>
   );
