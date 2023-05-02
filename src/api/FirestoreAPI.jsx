@@ -5,15 +5,17 @@ import {
   onSnapshot,
   doc,
   updateDoc,
+  query,
+  where,
 } from "firebase/firestore";
 import { toast } from "react-toastify";
 
-let dbRef = collection(firestore, "posts");
+let postsRef = collection(firestore, "posts");
 let userRef = collection(firestore, "users");
 
 export const postStatus = (object) => {
-  addDoc(dbRef, object)
-    .then((res) => {
+  addDoc(postsRef, object)
+    .then(() => {
       toast.success("Post has been submitted");
     })
     .catch((err) => {
@@ -21,12 +23,50 @@ export const postStatus = (object) => {
     });
 };
 
+export const getPosts = () => {
+  onSnapshot(postsRef, (response) => {
+    console.log(response);
+  });
+};
+
 export const getStatus = (setAllStatus) => {
-  onSnapshot(dbRef, (response) => {
+  onSnapshot(postsRef, (response) => {
     setAllStatus(
       response.docs.map((docs) => {
         return { ...docs.data(), id: docs.id };
       })
+    );
+  });
+};
+
+export const getAllUsers = (setAllUsers) => {
+  onSnapshot(userRef, (response) => {
+    setAllUsers(
+      response.docs.map((docs) => {
+        return { ...docs.data(), id: docs.id };
+      })
+    );
+  });
+};
+
+export const getSingleStatus = (setAllStatus, id) => {
+  const singlePostQuery = query(postsRef, where("userID", "==", id));
+  onSnapshot(singlePostQuery, (response) => {
+    setAllStatus(
+      response.docs.map((docs) => {
+        return { ...docs.data(), id: docs.id };
+      })
+    );
+  });
+};
+
+export const getSingleUser = (setCurrentUser, email) => {
+  const singleUserQuery = query(userRef, where("email", "==", email));
+  onSnapshot(singleUserQuery, (response) => {
+    setCurrentUser(
+      response.docs.map((docs) => {
+        return { ...docs.data(), id: docs.id };
+      })[0]
     );
   });
 };
