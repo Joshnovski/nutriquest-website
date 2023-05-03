@@ -12,15 +12,13 @@ export default function PostStatus({ currentUser }) {
   const [allStatus, setAllStatus] = useState([]);
 
   const sendStatus = async () => {
-    //console.log(currentUser.userID);
     let object = {
       status: status,
       timeStamp: getCurrentTimeStamp("LLL"),
       userEmail: currentUser.email,
       userName: currentUser.name,
       postID: getUniqueID(),
-      //userID: currentUser.id,
-      userID: currentUser.userID, //Changing .id to .userID fixed it.
+      userID: currentUser.id,
     };
     await postStatus(object);
     await setModalOpen(false);

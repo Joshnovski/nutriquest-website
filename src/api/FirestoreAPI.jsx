@@ -23,12 +23,6 @@ export const postStatus = (object) => {
     });
 };
 
-export const getPosts = () => {
-  onSnapshot(postsRef, (response) => {
-    console.log(response);
-  });
-};
-
 export const getStatus = (setAllStatus) => {
   onSnapshot(postsRef, (response) => {
     setAllStatus(
@@ -84,7 +78,7 @@ export const getCurrentUser = (setCurrentUser) => {
     setCurrentUser(
       response.docs
         .map((docs) => {
-          return { ...docs.data(), userID: docs.id };
+          return { ...docs.data(), id: docs.id };
         })
         .filter((item) => {
           return item.email === localStorage.getItem("userEmail");
