@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import "./index.scss";
 import { editProfile } from "../../../api/FirestoreAPI";
+import "./index.scss";
+
 export default function ProfileEdit({ onEdit, currentUser }) {
   const [editInputs, setEditInputs] = useState({});
   const getInput = (event) => {
@@ -10,7 +11,7 @@ export default function ProfileEdit({ onEdit, currentUser }) {
   };
 
   const updateProfileData = async () => {
-    await editProfile(currentUser?.userID, editInputs);
+    await editProfile(currentUser?.id, editInputs);
     await onEdit();
   };
 

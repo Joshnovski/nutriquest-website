@@ -9,7 +9,6 @@ export default function ProfilePopup() {
   const [currentUser, setCurrentUser] = useState({});
   useMemo(() => {
     getCurrentUser(setCurrentUser);
-    console.log(currentUser);
   }, []);
   return (
     <div className="popup-card">
@@ -19,7 +18,7 @@ export default function ProfilePopup() {
           onClick={() =>
             navigate("/profile", {
               state: {
-                id: currentUser?.userID,
+                id: currentUser?.userID, /// changed .userID to id
               },
             })
           }
