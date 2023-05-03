@@ -6,7 +6,7 @@ import "./index.scss";
 
 export default function ProfileCard({ onEdit, currentUser }) {
   let location = useLocation();
-  const [allStatus, setAllStatus] = useState([]);
+  const [allStatuses, setAllStatus] = useState([]);
   const [currentProfile, setCurrentProfile] = useState({});
 
   useMemo(() => {
@@ -60,21 +60,13 @@ export default function ProfileCard({ onEdit, currentUser }) {
       </div>
 
       <div className="post-status-main">
-        {allStatus
-          .filter((item) => {
-            console.log(item);
-            console.log("printing items");
-            return item.userEmail === localStorage.getItem("userEmail");
-          })
-          .map((posts) => {
-            console.log(posts);
-            console.log("printing the posts");
-            return (
-              <div key={posts.id}>
-                <PostsCard posts={posts} />
-              </div>
-            );
-          })}
+        {allStatuses?.map((posts) => {
+          return (
+            <div key={posts.id}>
+              <PostsCard posts={posts} />
+            </div>
+          );
+        })}
       </div>
     </>
   );

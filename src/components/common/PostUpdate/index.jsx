@@ -9,7 +9,7 @@ import "./index.scss";
 export default function PostStatus({ currentUser }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [status, setStatus] = useState("");
-  const [allStatus, setAllStatus] = useState([]);
+  const [allStatuses, setAllStatus] = useState([]);
 
   const sendStatus = async () => {
     let object = {
@@ -45,7 +45,7 @@ export default function PostStatus({ currentUser }) {
       />
 
       <div>
-        {allStatus.map((posts) => {
+        {allStatuses.map((posts) => {
           return (
             <div key={posts.id}>
               <PostsCard posts={posts} />
