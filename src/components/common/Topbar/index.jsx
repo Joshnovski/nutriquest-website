@@ -11,10 +11,13 @@ import { useNavigate } from "react-router-dom";
 import ProfilePopup from "../ProfilePopup";
 import "./index.scss";
 
-export default function Topbar() {
+export default function Topbar({ currentUser }) {
   const [popupVisible, setPopupVisible] = useState(false);
+  const [isSearch, setIsSearch] = useState(false);
+  const [users, setUsers] = useState([]);
   const [filteredUsers, setFilteredUsers] = useState([]);
   const [searchInput, setSearchInput] = useState("");
+
   let navigate = useNavigate();
   const goToRoute = (route) => {
     navigate(route);
@@ -42,6 +45,7 @@ export default function Topbar() {
       ) : (
         <></>
       )}
+
       <img
         className="nutriquest-Logo"
         src={nutriquestLogo}
