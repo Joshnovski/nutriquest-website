@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from "react";
 import nutriquestLogo from "../../../assets/nutriquestLogo.png";
-import user from "../../../assets/userGrey.png";
+import userGrey from "../../../assets/userGrey.png";
 import { AiFillHome } from "react-icons/ai";
 import { FaUser } from "react-icons/fa";
 import { IoMdQrScanner } from "react-icons/io";
 import { BsCalculatorFill } from "react-icons/bs";
 import { GoSearch } from "react-icons/go";
 import { GiWeightLiftingUp } from "react-icons/gi";
-import userGrey from "../../../assets/userGrey.png";
 import { useNavigate } from "react-router-dom";
 import ProfilePopup from "../ProfilePopup";
 import "./index.scss";
 
 export default function Topbar() {
   const [popupVisible, setPopupVisible] = useState(false);
+  const [filteredUsers, setFilteredUsers] = useState([]);
+  const [searchInput, setSearchInput] = useState("");
   let navigate = useNavigate();
   const goToRoute = (route) => {
     navigate(route);
@@ -23,11 +24,11 @@ export default function Topbar() {
     setPopupVisible(!popupVisible);
   };
 
-  const openUser = (user) => {
+  const openUser = (userGrey) => {
     navigate("/profile", {
       state: {
-        id: user.id,
-        email: user.email,
+        id: userGrey.id,
+        email: userGrey.email,
       },
     });
   };
@@ -69,6 +70,23 @@ export default function Topbar() {
         alt="userGrey"
         onClick={displayPopup}
       />
+
+      {searchInput.length === 0 ? (
+        <></>
+      ) : (
+        <div className="search-results">
+          {filteredUsers.length === 0 ? (
+            <div className="search-inner">No Results Found..</div>
+          ) : (
+            filteredUsers.map((userGrey) => (
+              <div className="search-inner" onClick={() => openUser(userGrey)}>
+                <img src={userGrey.imageLink} />
+                <p className="name">{userGrey.name}</p>
+              </div>
+            ))
+          )}
+        </div>
+      )}
     </div>
   );
 }

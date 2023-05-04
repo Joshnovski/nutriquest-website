@@ -31,7 +31,12 @@ export default function PostStatus({ currentUser }) {
   return (
     <div className="post-status-main">
       <div className="post-status">
-        <button className="open-post-modal" onClick={() => setModalOpen(true)}>
+        <button
+          className="open-post-modal"
+          onClick={() => {
+            setModalOpen(true);
+          }}
+        >
           Start a Post
         </button>
       </div>
