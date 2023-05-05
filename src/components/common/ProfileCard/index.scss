@@ -6,6 +6,7 @@
   border-radius: 5px;
   padding: 20px;
   position: relative;
+
   .profile-info {
     display: flex;
     justify-content: space-between;
@@ -46,16 +47,33 @@
     font-size: 16px;
     margin-top: 20px;
   }
+  .save-btn:hover {
+    background-color: white;
+    color: black;
+  }
 
   .edit-btn {
     position: absolute;
     right: 20px;
-    button {
-      background-color: #65874a;
-      font-family: system-ui;
-      border: none;
-      border-radius: 2px;
+
+    .edit-icon {
+      color: white;
       cursor: pointer;
+      width: 20px;
+      height: 20px;
+      padding: 8px;
+    }
+
+    .edit-icon:hover {
+      background-color: #505050;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 50px;
+    }
+
+    button:hover {
+      background-color: white;
+      color: black;
     }
   }
   .userName {

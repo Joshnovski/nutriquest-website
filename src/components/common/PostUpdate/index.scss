@@ -18,10 +18,11 @@
       width: 80%;
       border-radius: 30px;
       background-color: #343434;
-      outline: 1px solid #808080;
+      outline: 3px solid #808080;
       height: 40px;
       text-align: left;
       color: #808080;
+      font-weight: 600;
       border: none;
       cursor: pointer;
       padding: 11px;
@@ -31,6 +32,8 @@
 
     .open-post-modal:hover {
       background-color: #474747;
+      outline: 3px solid white;
+      color: white;
     }
   }
 }

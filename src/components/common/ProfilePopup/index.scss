@@ -1,16 +1,16 @@
 .popup-card {
-  border: 1px solid #a8a8a8;
   width: 200px;
   height: auto;
-  background-color: whitesmoke;
-  border-radius: 5px;
+  background-color: white;
+  border-radius: 8px;
   display: flex;
   justify-content: center;
-
+  margin-top: 15px;
+  margin-right: 20px;
   flex-direction: column;
   padding: 20px;
   .name {
-    font-size: 16px;
+    font-size: 18px;
     color: rgba(0, 0, 0, 0.9);
     font-weight: 600;
     text-align: left;

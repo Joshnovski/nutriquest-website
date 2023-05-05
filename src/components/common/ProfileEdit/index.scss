@@ -1,11 +1,15 @@
 .profile-edit-inputs {
-  display: grid;
   margin-top: 40px;
   gap: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
   .edit-input {
     height: 30px;
     padding: 10px;
+    width: 600px;
     background-color: #343434;
     outline: none;
     border: 1px solid #5e5e5e;
@@ -13,5 +17,14 @@
     border-radius: 5px;
     font-size: 16px;
     margin: 8px 0px;
+  }
+
+  .edit-input:hover {
+    border: 1px solid white;
+    background-color: #474747;
+  }
+
+  .edit-input:focus {
+    border: 1px solid white;
   }
 }
