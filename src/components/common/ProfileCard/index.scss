@@ -57,7 +57,7 @@
     right: 20px;
 
     .edit-icon {
-      color: white;
+      color: #a3a3a3;
       cursor: pointer;
       width: 20px;
       height: 20px;
@@ -65,7 +65,7 @@
     }
 
     .edit-icon:hover {
-      background-color: #505050;
+      background-color: #424242;
       cursor: pointer;
       padding: 8px;
       border-radius: 50px;
@@ -92,7 +92,30 @@
     line-height: 20px;
   }
 
-  .location {
+  .country {
     color: #c0c0c0;
+  }
+
+  .about-me {
+    color: white;
+    font-family: system-ui;
+  }
+
+  .website {
+    color: #65874a;
+  }
+
+  .website:hover {
+    color: #8ab267;
+  }
+
+  .skills {
+    color: white;
+    font-family: system-ui;
+  }
+
+  .skill-label {
+    color: #8ab267;
+    font-weight: 600;
   }
 }

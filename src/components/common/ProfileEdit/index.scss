@@ -1,4 +1,11 @@
 .profile-edit-inputs {
+  label {
+    width: 620px;
+    color: #c0c0c0;
+    font-size: 16px;
+    font-family: system-ui;
+  }
+
   margin-top: 40px;
   gap: 20px;
   display: flex;
@@ -16,7 +23,8 @@
     color: #c0c0c0;
     border-radius: 5px;
     font-size: 16px;
-    margin: 8px 0px;
+    margin: -8px 0px;
+    font-family: system-ui;
   }
 
   .edit-input:hover {
@@ -27,4 +35,17 @@
   .edit-input:focus {
     border: 1px solid white;
   }
+}
+
+.close-icon {
+  color: #a3a3a3;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.close-icon:hover {
+  background-color: #424242;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50px;
 }

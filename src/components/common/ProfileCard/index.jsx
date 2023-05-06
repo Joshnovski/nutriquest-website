@@ -38,11 +38,24 @@ export default function ProfileCard({ onEdit, currentUser }) {
                 ? currentUser.headline
                 : currentProfile?.headline}
             </p>
-            <p className="location">
+            <p className="country">
               {Object.values(currentProfile).length === 0
-                ? currentUser.location
-                : currentProfile?.location}
+                ? `${currentUser.city}, ${currentUser.state}, ${currentUser.country}`
+                : `${currentProfile?.city}, ${currentProfile?.state}, ${currentProfile?.country}`}
             </p>
+            <a
+              className="website"
+              target="_blank"
+              href={
+                Object.values(currentProfile).length === 0
+                  ? `${currentUser.website}`
+                  : currentProfile?.website
+              }
+            >
+              {Object.values(currentProfile).length === 0
+                ? `${currentUser.website}`
+                : currentProfile?.website}
+            </a>
           </div>
 
           <div className="right-info">
@@ -58,6 +71,17 @@ export default function ProfileCard({ onEdit, currentUser }) {
             </p>
           </div>
         </div>
+        <p className="about-me">
+          {Object.values(currentProfile).length === 0
+            ? currentUser.aboutMe
+            : currentProfile?.aboutMe}
+        </p>
+        <p className="skills">
+          <span className="skill-label">Skills:</span>&nbsp;
+          {Object.values(currentProfile).length === 0
+            ? currentUser.skills
+            : currentProfile?.skills}
+        </p>
       </div>
 
       <div className="post-status-main">
