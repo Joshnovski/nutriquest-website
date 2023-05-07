@@ -15,6 +15,7 @@ import { toast } from "react-toastify";
 let postsRef = collection(firestore, "posts");
 let userRef = collection(firestore, "users");
 let likeRef = collection(firestore, "likes");
+let commentsRef = collection(firestore, "comments");
 
 export const postStatus = (object) => {
   addDoc(postsRef, object)
@@ -127,6 +128,18 @@ export const getLikesByUser = (userId, postId, setLiked, setLikesCount) => {
 
       setLikesCount(likesCount);
       setLiked(isLiked);
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const postComment = (postId, comment, timeStamp) => {
+  try {
+    addDoc(commentsRef, {
+      postId,
+      comment,
+      timeStamp,
     });
   } catch (err) {
     console.log(err);

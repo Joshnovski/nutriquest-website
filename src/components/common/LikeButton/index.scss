@@ -5,7 +5,50 @@
   gap: 5px;
   padding: 7px 10px;
   color: #8ab267;
-  margin-bottom: -30px;
+  margin-bottom: -20px;
+
+  .like-comment {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+  }
+
+  .comment-input {
+    height: 40px;
+    background-color: #343434;
+    outline: 3px solid #808080;
+    font-family: system-ui;
+    font-weight: 600;
+    padding-left: 10px;
+    border-radius: 30px;
+    border: none;
+    font-size: 15px;
+    color: white;
+  }
+
+  .comment-input:focus {
+    outline: 3px solid white;
+  }
+
+  .comment-input:hover {
+    outline: 3px solid white;
+  }
+
+  .add-comment-btn {
+    width: 150px;
+    height: 35px;
+    background-color: #808080;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .add-comment-btn:hover {
+    background-color: #65874a;
+  }
+
   .hr-line {
     margin-top: -17px;
     hr {
@@ -21,7 +64,7 @@
     margin-left: 5px;
   }
 
-  .likes-inner {
+  .likes-comment-inner {
     display: flex;
     align-items: center;
     margin-top: -20px;
