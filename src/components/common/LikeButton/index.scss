@@ -1,14 +1,42 @@
 .like-container {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
   gap: 5px;
   padding: 7px 10px;
   color: #8ab267;
+  margin-bottom: -30px;
+  .hr-line {
+    margin-top: -17px;
+    hr {
+      border-color: #808080;
+    }
+  }
 
   p {
     font-family: system-ui;
-    font-weight: 600;
+    font-weight: 400;
     color: white;
-    cursor: pointer;
+    font-size: 14px;
+    margin-left: 5px;
+  }
+
+  .likes-inner {
+    display: flex;
+    align-items: center;
+    margin-top: -20px;
+    .green {
+      color: #8ab267;
+    }
+    .white {
+      color: white;
+    }
+    p {
+      font-family: system-ui;
+      font-weight: 600;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+    }
   }
 }

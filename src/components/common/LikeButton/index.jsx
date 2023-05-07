@@ -16,24 +16,33 @@ export default function LikeButton({ userId, postId }) {
 
   return (
     <div className="like-container">
-      {liked ? (
-        <AiFillLike
-          className="like-btn"
-          size={25}
-          cursor="pointer"
-          onClick={handleLike}
-        />
-      ) : (
-        <AiOutlineLike
-          className="like-btn"
-          size={25}
-          cursor="pointer"
-          onClick={handleLike}
-        />
-      )}
-      <p onClick={handleLike}>{liked ? "Liked" : "Like"}</p>
-      {likesCount}
-      {/* Need a solution for style and placement of count. */}
+      <p>
+        {likesCount}{" "}
+        {likesCount === 1 ? "Person has liked" : "People have liked"} this post
+      </p>
+      <div className="hr-line">
+        <hr />
+      </div>
+      <div className="likes-inner">
+        {liked ? (
+          <AiFillLike
+            className="like-btn"
+            size={25}
+            cursor="pointer"
+            onClick={handleLike}
+          />
+        ) : (
+          <AiOutlineLike
+            className="like-btn"
+            size={25}
+            cursor="pointer"
+            onClick={handleLike}
+          />
+        )}
+        <p className={liked ? "green" : "white"} onClick={handleLike}>
+          Like
+        </p>
+      </div>
     </div>
   );
 }
