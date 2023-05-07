@@ -1,0 +1,14 @@
+.like-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 10px;
+  color: #8ab267;
+
+  p {
+    font-family: system-ui;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+  }
+}
