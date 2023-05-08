@@ -134,12 +134,31 @@ export const getLikesByUser = (userId, postId, setLiked, setLikesCount) => {
   }
 };
 
-export const postComment = (postId, comment, timeStamp) => {
+export const postComment = (postId, comment, timeStamp, name) => {
   try {
     addDoc(commentsRef, {
       postId,
       comment,
       timeStamp,
+      name,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const getComments = (postId, setComments) => {
+  try {
+    let singlePostQuery = query(commentsRef, where("postId", "==", postId));
+
+    onSnapshot(singlePostQuery, (response) => {
+      const comments = response.docs.map((doc) => {
+        return {
+          id: doc.id,
+          ...doc.data(),
+        };
+      });
+      setComments(comments);
     });
   } catch (err) {
     console.log(err);

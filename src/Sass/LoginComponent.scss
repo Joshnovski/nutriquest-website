@@ -157,7 +157,6 @@ body {
       color: #8ab267;
       font-family: system-ui;
       cursor: pointer;
-      text-decoration: underline;
     }
 
     .go-to-signup {
@@ -168,5 +167,6 @@ body {
 
   .join-now:hover {
     color: White;
+    text-decoration: underline;
   }
 }
