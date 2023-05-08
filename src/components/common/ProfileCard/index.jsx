@@ -9,7 +9,10 @@ export default function ProfileCard({ onEdit, currentUser }) {
   let location = useLocation();
   const [allStatuses, setAllStatus] = useState([]);
   const [currentProfile, setCurrentProfile] = useState({});
-
+  const [currentImage, setCurrentImage] = useState({});
+  const getImage = (event) => {
+    setCurrentImage(event.target.files[0]);
+  };
   useMemo(() => {
     if (location?.state?.id) {
       getSingleStatus(setAllStatus, location?.state?.id);
@@ -23,6 +26,7 @@ export default function ProfileCard({ onEdit, currentUser }) {
   return (
     <>
       <div className="profile-card">
+        <input type={"file"} onChange={getImage} />
         <div className="edit-btn">
           <HiPencil className="edit-icon" onClick={onEdit} />
         </div>
