@@ -11,6 +11,16 @@
     display: flex;
     justify-content: space-between;
 
+    .profile-image {
+      width: 200px;
+      height: 200px;
+      object-fit: contain;
+      border-radius: 50%;
+      border: 3px solid #5e5e5e;
+      padding: 5px;
+      cursor: pointer;
+    }
+
     .right-info {
       margin-top: 25px;
       margin-right: 20px;
@@ -81,6 +91,7 @@
     color: #8ab267;
     font-size: 24px;
     font-weight: 600;
+    margin-top: 10px;
   }
 
   .userHeadline {

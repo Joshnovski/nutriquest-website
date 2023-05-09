@@ -3,6 +3,8 @@ import { getSingleStatus, getSingleUser } from "../../../api/FirestoreAPI";
 import PostsCard from "../PostsCard";
 import { useLocation } from "react-router-dom";
 import { HiPencil } from "react-icons/hi";
+import { uploadImage as uploadImageAPI } from "../../../api/ImageUpload";
+import FileUploadModal from "../FileUploadModal";
 import "./index.scss";
 
 export default function ProfileCard({ onEdit, currentUser }) {
@@ -10,8 +12,20 @@ export default function ProfileCard({ onEdit, currentUser }) {
   const [allStatuses, setAllStatus] = useState([]);
   const [currentProfile, setCurrentProfile] = useState({});
   const [currentImage, setCurrentImage] = useState({});
+  const [progress, setProgress] = useState(0);
+  const [modalOpen, setModalOpen] = useState(false);
   const getImage = (event) => {
     setCurrentImage(event.target.files[0]);
+  };
+
+  const uploadImage = () => {
+    uploadImageAPI(
+      currentImage,
+      currentUser.id,
+      setModalOpen,
+      setProgress,
+      setCurrentImage
+    );
   };
   useMemo(() => {
     if (location?.state?.id) {
@@ -25,13 +39,30 @@ export default function ProfileCard({ onEdit, currentUser }) {
 
   return (
     <>
+      <FileUploadModal
+        getImage={getImage}
+        uploadImage={uploadImage}
+        modalOpen={modalOpen}
+        setModalOpen={setModalOpen}
+        currentImage={currentImage}
+        progress={progress}
+      />
       <div className="profile-card">
-        <input type={"file"} onChange={getImage} />
         <div className="edit-btn">
           <HiPencil className="edit-icon" onClick={onEdit} />
         </div>
         <div className="profile-info">
           <div>
+            <img
+              className="profile-image"
+              onClick={() => setModalOpen(true)}
+              src={
+                Object.values(currentProfile).length === 0
+                  ? currentUser.imageLink
+                  : currentProfile?.imageLink
+              }
+              alt="profile-image"
+            />
             <h3 className="userName">
               {Object.values(currentProfile).length === 0
                 ? currentUser.name
