@@ -12,7 +12,7 @@ export default function PostsCard({ posts, id }) {
     getCurrentUser(setCurrentUser);
     getAllUsers(setAllUsers);
   }, []);
-
+  console.log(allUsers.filter((item) => item.id));
   return (
     <div className="posts-card" key={id}>
       <p
