@@ -6,8 +6,12 @@ import {
   getComments,
 } from "../../../api/FirestoreAPI";
 import { getCurrentTimeStamp } from "../../../helpers/useMoment";
-import { AiOutlineLike, AiFillLike } from "react-icons/ai";
-import { FaRegCommentDots, FaCommentDots } from "react-icons/fa";
+import {
+  BsHandThumbsUp,
+  BsFillHandThumbsUpFill,
+  BsChatDots,
+  BsChatDotsFill,
+} from "react-icons/bs";
 import "./index.scss";
 
 export default function LikeButton({ userId, postId, currentUser }) {
@@ -35,7 +39,7 @@ export default function LikeButton({ userId, postId, currentUser }) {
 
   return (
     <div className="like-container">
-      <p>
+      <p className="like-counter">
         {likesCount}{" "}
         {likesCount === 1 ? "Person has liked" : "People have liked"} this post
       </p>
@@ -45,14 +49,14 @@ export default function LikeButton({ userId, postId, currentUser }) {
       <div className="like-comment">
         <div className="likes-comment-inner">
           {liked ? (
-            <AiFillLike
+            <BsFillHandThumbsUpFill
               className="like-btn"
               size={30}
               cursor="pointer"
               onClick={handleLike}
             />
           ) : (
-            <AiOutlineLike
+            <BsHandThumbsUp
               className="like-btn"
               size={30}
               cursor="pointer"
@@ -69,9 +73,9 @@ export default function LikeButton({ userId, postId, currentUser }) {
           onClick={() => setShowCommentBox(!showCommentBox)}
         >
           {showCommentBox ? (
-            <FaCommentDots size={27} cursor="pointer" />
+            <BsChatDotsFill size={30} cursor="pointer" />
           ) : (
-            <FaRegCommentDots size={27} cursor="pointer" />
+            <BsChatDots size={30} cursor="pointer" />
           )}
 
           <p className={showCommentBox ? "green" : "white"}>Comment</p>

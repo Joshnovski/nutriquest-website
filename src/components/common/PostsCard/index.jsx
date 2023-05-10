@@ -12,20 +12,34 @@ export default function PostsCard({ posts, id }) {
     getCurrentUser(setCurrentUser);
     getAllUsers(setAllUsers);
   }, []);
-  console.log(allUsers.filter((item) => item.id));
+
   return (
     <div className="posts-card" key={id}>
-      <p
-        className="name"
-        onClick={() =>
-          navigate("/profile", {
-            state: { id: posts?.userID, email: posts.userEmail },
-          })
-        }
-      >
-        {posts.userName}
-      </p>
-      <p className="timestamp">{posts.timeStamp}</p>
+      <div className="post-image-wrapper">
+        <img
+          alt="profile-image"
+          className="post-image"
+          src={
+            allUsers
+              .filter((item) => item.id === posts.userID)
+              .map((item) => item.imageLink)[0]
+          }
+        />
+        <div>
+          <p
+            className="name"
+            onClick={() =>
+              navigate("/profile", {
+                state: { id: posts?.userID, email: posts.userEmail },
+              })
+            }
+          >
+            {posts.userName}
+          </p>
+          <p className="timestamp">{posts.timeStamp}</p>
+        </div>
+      </div>
+
       <p className="status">{posts.status}</p>
 
       <LikeButton
