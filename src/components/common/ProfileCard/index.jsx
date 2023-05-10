@@ -2,7 +2,7 @@ import React, { useState, useMemo } from "react";
 import { getSingleStatus, getSingleUser } from "../../../api/FirestoreAPI";
 import PostsCard from "../PostsCard";
 import { useLocation } from "react-router-dom";
-import { HiPencil } from "react-icons/hi";
+import { BsPencil } from "react-icons/bs";
 import { uploadImage as uploadImageAPI } from "../../../api/ImageUpload";
 import FileUploadModal from "../FileUploadModal";
 import "./index.scss";
@@ -49,7 +49,7 @@ export default function ProfileCard({ onEdit, currentUser }) {
       />
       <div className="profile-card">
         <div className="edit-btn">
-          <HiPencil className="edit-icon" onClick={onEdit} />
+          <BsPencil className="edit-icon" onClick={onEdit} />
         </div>
         <div className="profile-info">
           <div>

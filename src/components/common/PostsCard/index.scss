@@ -12,6 +12,7 @@
     display: flex;
     padding: 15px;
     gap: 15px;
+    position: relative;
   }
 
   .post-image {
@@ -50,5 +51,25 @@
     font-size: 18px;
     font-weight: 400;
     color: white;
+  }
+}
+
+.action-container {
+  position: absolute;
+  right: 20px;
+  cursor: pointer;
+  display: flex;
+  top: 10px;
+
+  .action-icon {
+    color: #8ab267;
+    padding: 10px;
+  }
+
+  .action-icon:hover {
+    color: white;
+    background-color: #424242;
+    padding: 10px;
+    border-radius: 50%;
   }
 }

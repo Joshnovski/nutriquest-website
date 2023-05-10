@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { BsPencil, BsTrash } from "react-icons/bs";
 import { getCurrentUser, getAllUsers } from "../../../api/FirestoreAPI";
 import LikeButton from "../LikeButton";
 import "./index.scss";
@@ -16,6 +17,11 @@ export default function PostsCard({ posts, id }) {
   return (
     <div className="posts-card" key={id}>
       <div className="post-image-wrapper">
+        <div className="action-container">
+          <BsPencil size={20} className="action-icon" />
+          <BsTrash size={20} className="action-icon" />
+        </div>
+
         <img
           alt="profile-image"
           className="post-image"
