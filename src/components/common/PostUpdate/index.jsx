@@ -10,7 +10,7 @@ export default function PostStatus({ currentUser }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [status, setStatus] = useState("");
   const [allStatuses, setAllStatus] = useState([]);
-
+  const [isEdit, setIsEdit] = useState(false);
   const sendStatus = async () => {
     let object = {
       status: status,
@@ -24,6 +24,13 @@ export default function PostStatus({ currentUser }) {
     await setModalOpen(false);
     await setStatus("");
   };
+
+  const getEditData = (posts) => {
+    setModalOpen(true);
+    setStatus(posts.status);
+    setIsEdit(true);
+  };
+
   useMemo(() => {
     getStatus(setAllStatus);
   }, []);
@@ -35,6 +42,7 @@ export default function PostStatus({ currentUser }) {
           className="open-post-modal"
           onClick={() => {
             setModalOpen(true);
+            setIsEdit(false);
           }}
         >
           Start a Post
@@ -47,13 +55,14 @@ export default function PostStatus({ currentUser }) {
         setModalOpen={setModalOpen}
         status={status}
         sendStatus={sendStatus}
+        isEdit={isEdit}
       />
 
       <div>
         {allStatuses.map((posts) => {
           return (
             <div key={posts.id}>
-              <PostsCard posts={posts} />
+              <PostsCard posts={posts} getEditData={getEditData} />
             </div>
           );
         })}

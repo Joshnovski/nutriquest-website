@@ -5,7 +5,7 @@ import { getCurrentUser, getAllUsers } from "../../../api/FirestoreAPI";
 import LikeButton from "../LikeButton";
 import "./index.scss";
 
-export default function PostsCard({ posts, id }) {
+export default function PostsCard({ posts, id, getEditData }) {
   let navigate = useNavigate();
   const [currentUser, setCurrentUser] = useState({});
   const [allUsers, setAllUsers] = useState([]);
@@ -18,7 +18,11 @@ export default function PostsCard({ posts, id }) {
     <div className="posts-card" key={id}>
       <div className="post-image-wrapper">
         <div className="action-container">
-          <BsPencil size={20} className="action-icon" />
+          <BsPencil
+            size={20}
+            className="action-icon"
+            onClick={() => getEditData(posts)}
+          />
           <BsTrash size={20} className="action-icon" />
         </div>
 
