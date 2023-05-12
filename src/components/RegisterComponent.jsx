@@ -19,6 +19,8 @@ export default function RegisterComponent() {
         userID: getUniqueID(),
         name: credentials.name,
         email: credentials.email,
+        imageLink:
+          "https://media.discordapp.net/attachments/334130514489376768/1098773591157395577/image.png",
       });
       navigate("/home");
       localStorage.setItem("userEmail", res.user.email);

@@ -62,7 +62,7 @@ export default function Topbar({ currentUser }) {
         <FaUser
           size={23}
           className="react-icon"
-          onClick={() => goToRoute("/profile")}
+          onClick={() => goToRoute("/connections")}
         />
         <BsCalculatorFill size={26} className="react-icon" />
         <IoMdQrScanner size={30} className="react-icon" />
