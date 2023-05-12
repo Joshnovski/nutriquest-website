@@ -5,7 +5,7 @@ import "../Sass/ConnectionsComponent.scss";
 
 export default function ConnectionsComponent({ currentUser }) {
   const [users, setUsers] = useState([]);
-  const getCurentUser = (id) => {
+  const getCurrentUser = (id) => {
     addConnection(currentUser.id, id);
   };
   useEffect(() => {
@@ -18,7 +18,11 @@ export default function ConnectionsComponent({ currentUser }) {
         return user.id === currentUser.id ? (
           <></>
         ) : (
-          <ConnectedUsers user={user} getCurentUser={getCurentUser} />
+          <ConnectedUsers
+            currentUser={currentUser}
+            user={user}
+            getCurrentUser={getCurrentUser}
+          />
         );
       })}
     </div>
