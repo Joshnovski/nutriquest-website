@@ -17,14 +17,18 @@ export default function PostsCard({ posts, id, getEditData }) {
   return (
     <div className="posts-card" key={id}>
       <div className="post-image-wrapper">
-        <div className="action-container">
-          <BsPencil
-            size={20}
-            className="action-icon"
-            onClick={() => getEditData(posts)}
-          />
-          <BsTrash size={20} className="action-icon" />
-        </div>
+        {currentUser.id === posts.userID ? (
+          <div className="action-container">
+            <BsPencil
+              size={20}
+              className="action-icon"
+              onClick={() => getEditData(posts)}
+            />
+            <BsTrash size={20} className="action-icon" />
+          </div>
+        ) : (
+          <></>
+        )}
 
         <img
           alt="profile-image"

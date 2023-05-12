@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from "react";
-import { postStatus, getStatus } from "../../../api/FirestoreAPI";
+import { postStatus, getStatus, updatePost } from "../../../api/FirestoreAPI";
 import { getCurrentTimeStamp } from "../../../helpers/useMoment";
 import ModalComponent from "../Modal";
 import { getUniqueID } from "../../../helpers/getUniqueId";
@@ -10,6 +10,7 @@ export default function PostStatus({ currentUser }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [status, setStatus] = useState("");
   const [allStatuses, setAllStatus] = useState([]);
+  const [currentPost, setCurrentPost] = useState({});
   const [isEdit, setIsEdit] = useState(false);
   const sendStatus = async () => {
     let object = {
@@ -22,13 +23,21 @@ export default function PostStatus({ currentUser }) {
     };
     await postStatus(object);
     await setModalOpen(false);
+    setIsEdit(false);
     await setStatus("");
   };
 
   const getEditData = (posts) => {
     setModalOpen(true);
-    setStatus(posts.status);
+    setStatus(posts?.status);
+    setCurrentPost(posts);
     setIsEdit(true);
+  };
+
+  const updateStatus = () => {
+    console.log(status);
+    updatePost(currentPost.id, status);
+    setModalOpen(false);
   };
 
   useMemo(() => {
@@ -56,6 +65,7 @@ export default function PostStatus({ currentUser }) {
         status={status}
         sendStatus={sendStatus}
         isEdit={isEdit}
+        updateStatus={updateStatus}
       />
 
       <div>
