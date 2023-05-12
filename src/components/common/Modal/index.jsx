@@ -31,7 +31,7 @@ const ModalComponent = ({
             key="submit"
             type="primary"
             disabled={status.length > 0 ? false : true}
-            style={{ backgroundColor: status.length > 0 ? "#65874A" : "" }}
+            style={{ backgroundColor: status.length > 0 ? "#8ab267" : "" }}
           >
             {isEdit ? "Update" : "Post"}
           </Button>,

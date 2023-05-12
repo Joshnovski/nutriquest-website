@@ -35,7 +35,6 @@ export default function PostStatus({ currentUser }) {
   };
 
   const updateStatus = () => {
-    console.log(status);
     updatePost(currentPost.id, status);
     setModalOpen(false);
   };
@@ -46,7 +45,17 @@ export default function PostStatus({ currentUser }) {
 
   return (
     <div className="post-status-main">
+      <div className="user-details">
+        <img src={currentUser.imageLink} alt="imageLink" />
+        <p className="name">{currentUser.name}</p>
+        <p className="headline">{currentUser.headline}</p>
+      </div>
       <div className="post-status">
+        <img
+          className="post-image"
+          src={currentUser.imageLink}
+          alt="imageLink"
+        />
         <button
           className="open-post-modal"
           onClick={() => {

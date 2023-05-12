@@ -1,7 +1,11 @@
 import React, { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { BsPencil, BsTrash } from "react-icons/bs";
-import { getCurrentUser, getAllUsers } from "../../../api/FirestoreAPI";
+import {
+  getCurrentUser,
+  getAllUsers,
+  deletePost,
+} from "../../../api/FirestoreAPI";
 import LikeButton from "../LikeButton";
 import "./index.scss";
 
@@ -24,7 +28,11 @@ export default function PostsCard({ posts, id, getEditData }) {
               className="action-icon"
               onClick={() => getEditData(posts)}
             />
-            <BsTrash size={20} className="action-icon" />
+            <BsTrash
+              size={20}
+              className="action-icon"
+              onClick={() => deletePost(posts.id)}
+            />
           </div>
         ) : (
           <></>
@@ -48,7 +56,10 @@ export default function PostsCard({ posts, id, getEditData }) {
               })
             }
           >
-            {posts.userName}
+            {allUsers.filter((user) => user.id === posts.userID)[0]?.name}
+          </p>
+          <p className="headline">
+            {allUsers.filter((user) => user.id === posts.userID)[0]?.headline}
           </p>
           <p className="timestamp">{posts.timeStamp}</p>
         </div>
