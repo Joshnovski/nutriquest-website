@@ -2,6 +2,7 @@ import React, { useState, useMemo } from "react";
 import { postStatus, getStatus, updatePost } from "../../../api/FirestoreAPI";
 import { getCurrentTimeStamp } from "../../../helpers/useMoment";
 import ModalComponent from "../Modal";
+import { uploadPostImage } from "../../../api/ImageUpload";
 import { getUniqueID } from "../../../helpers/getUniqueId";
 import PostsCard from "../PostsCard";
 import "./index.scss";
@@ -12,6 +13,9 @@ export default function PostStatus({ currentUser }) {
   const [allStatuses, setAllStatus] = useState([]);
   const [currentPost, setCurrentPost] = useState({});
   const [isEdit, setIsEdit] = useState(false);
+  const [currentImage, setCurrentImage] = useState({});
+  const [postImage, setPostImage] = useState("");
+
   const sendStatus = async () => {
     let object = {
       status: status,
@@ -75,6 +79,8 @@ export default function PostStatus({ currentUser }) {
         sendStatus={sendStatus}
         isEdit={isEdit}
         updateStatus={updateStatus}
+        setCurrentImage={setCurrentImage}
+        uploadPostImage={uploadPostImage}
       />
 
       <div>

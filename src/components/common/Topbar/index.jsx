@@ -13,7 +13,7 @@ import ProfilePopup from "../ProfilePopup";
 import SearchUsers from "../SearchUsers";
 import "./index.scss";
 
-export default function Topbar({ currentUser }) {
+export default function Topbar() {
   const [popupVisible, setPopupVisible] = useState(false);
   const [isSearch, setIsSearch] = useState(false);
   const [users, setUsers] = useState([]);
