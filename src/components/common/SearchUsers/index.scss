@@ -1,0 +1,35 @@
+.search-users {
+  width: 40%;
+  margin-left: 15px;
+  display: flex;
+  align-items: center;
+  .close-icon-round {
+    margin-left: -35px;
+    color: #666666;
+    cursor: pointer;
+  }
+  .close-icon-round:hover {
+    color: #999999;
+  }
+  input {
+    height: 30px;
+    width: 100%;
+    background-color: #343434;
+    border: 1px solid #666666;
+    border-radius: 10px;
+    color: white;
+    padding-left: 10px;
+    outline: none;
+    font-size: 15px;
+    font-family: Inter;
+  }
+  input:focus {
+    border: 2px solid #838383;
+  }
+
+  ::placeholder {
+    font-size: 15px;
+    color: #838383;
+    font-family: Inter;
+  }
+}

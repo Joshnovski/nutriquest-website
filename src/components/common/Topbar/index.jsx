@@ -8,7 +8,9 @@ import { BsCalculatorFill } from "react-icons/bs";
 import { GoSearch } from "react-icons/go";
 import { GiWeightLiftingUp } from "react-icons/gi";
 import { useNavigate } from "react-router-dom";
+import { getAllUsers } from "../../../api/FirestoreAPI";
 import ProfilePopup from "../ProfilePopup";
+import SearchUsers from "../SearchUsers";
 import "./index.scss";
 
 export default function Topbar({ currentUser }) {
@@ -27,14 +29,40 @@ export default function Topbar({ currentUser }) {
     setPopupVisible(!popupVisible);
   };
 
-  const openUser = (userGrey) => {
+  const openUser = (user) => {
     navigate("/profile", {
       state: {
-        id: userGrey.id,
-        email: userGrey.email,
+        id: user.id,
+        email: user.email,
       },
     });
   };
+
+  const handleSearch = () => {
+    if (searchInput !== "") {
+      let searched = users.filter((user) => {
+        return Object.values(user)
+          .join("")
+          .toLowerCase()
+          .includes(searchInput.toLowerCase());
+      });
+      setFilteredUsers(searched);
+    } else {
+      setFilteredUsers(users);
+    }
+  };
+
+  useEffect(() => {
+    let debounced = setTimeout(() => {
+      handleSearch();
+    }, 1000);
+
+    return () => clearTimeout(debounced);
+  }, [searchInput]);
+
+  useEffect(() => {
+    getAllUsers(setUsers);
+  });
 
   return (
     <div className="topbar-main">
@@ -51,23 +79,34 @@ export default function Topbar({ currentUser }) {
         src={nutriquestLogo}
         alt="nutriquestLogo"
       />
-      <div className="react-icons">
-        {/* Wrap all icons in the same div so we can arrange them */}
-        <GoSearch size={23} className="react-icon" />
-        <AiFillHome
-          size={26}
-          className="react-icon"
-          onClick={() => goToRoute("/home")}
+      {isSearch ? (
+        <SearchUsers
+          setIsSearch={setIsSearch}
+          setSearchInput={setSearchInput}
         />
-        <FaUser
-          size={23}
-          className="react-icon"
-          onClick={() => goToRoute("/connections")}
-        />
-        <BsCalculatorFill size={26} className="react-icon" />
-        <IoMdQrScanner size={30} className="react-icon" />
-        <GiWeightLiftingUp size={28} className="react-icon" />
-      </div>
+      ) : (
+        <div className="react-icons">
+          {/* Wrap all icons in the same div so we can arrange them */}
+          <GoSearch
+            size={23}
+            className="react-icon"
+            onClick={() => setIsSearch(true)}
+          />
+          <AiFillHome
+            size={26}
+            className="react-icon"
+            onClick={() => goToRoute("/home")}
+          />
+          <FaUser
+            size={23}
+            className="react-icon"
+            onClick={() => goToRoute("/connections")}
+          />
+          <BsCalculatorFill size={26} className="react-icon" />
+          <IoMdQrScanner size={30} className="react-icon" />
+          <GiWeightLiftingUp size={28} className="react-icon" />
+        </div>
+      )}
       <img
         className="userGrey"
         src={userGrey}
@@ -80,12 +119,12 @@ export default function Topbar({ currentUser }) {
       ) : (
         <div className="search-results">
           {filteredUsers.length === 0 ? (
-            <div className="search-inner">No Results Found..</div>
+            <div className="search-inner">No Results...</div>
           ) : (
-            filteredUsers.map((userGrey) => (
-              <div className="search-inner" onClick={() => openUser(userGrey)}>
-                <img src={userGrey.imageLink} />
-                <p className="name">{userGrey.name}</p>
+            filteredUsers.map((user) => (
+              <div className="search-inner" onClick={() => openUser(user)}>
+                <img src={user.imageLink} />
+                <p className="name">{user.name}</p>
               </div>
             ))
           )}

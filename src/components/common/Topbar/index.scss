@@ -41,3 +41,39 @@
   top: 45px;
   z-index: 99;
 }
+
+.search-results {
+  position: absolute;
+  left: 79px;
+  top: 50px;
+  width: 380px;
+  height: auto;
+  background-color: #343434;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.search-inner {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 10px;
+  color: white;
+  img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .name {
+    font-family: system-ui;
+    color: #8ab267;
+    font-size: 18px;
+  }
+}
+.search-inner:hover {
+  background-color: #464646;
+  cursor: pointer;
+  border-radius: 10px;
+}
