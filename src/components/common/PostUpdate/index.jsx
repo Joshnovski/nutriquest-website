@@ -13,7 +13,6 @@ export default function PostStatus({ currentUser }) {
   const [allStatuses, setAllStatus] = useState([]);
   const [currentPost, setCurrentPost] = useState({});
   const [isEdit, setIsEdit] = useState(false);
-  const [currentImage, setCurrentImage] = useState({});
   const [postImage, setPostImage] = useState("");
 
   const sendStatus = async () => {
@@ -24,6 +23,7 @@ export default function PostStatus({ currentUser }) {
       userName: currentUser.name,
       postID: getUniqueID(),
       userID: currentUser.id,
+      postImage: postImage,
     };
     await postStatus(object);
     await setModalOpen(false);
@@ -39,7 +39,7 @@ export default function PostStatus({ currentUser }) {
   };
 
   const updateStatus = () => {
-    updatePost(currentPost.id, status);
+    updatePost(currentPost.id, status, postImage);
     setModalOpen(false);
   };
 
@@ -79,8 +79,11 @@ export default function PostStatus({ currentUser }) {
         sendStatus={sendStatus}
         isEdit={isEdit}
         updateStatus={updateStatus}
-        setCurrentImage={setCurrentImage}
         uploadPostImage={uploadPostImage}
+        postImage={postImage}
+        setPostImage={setPostImage}
+        currentPost={currentPost}
+        setCurrentPost={setCurrentPost}
       />
 
       <div>

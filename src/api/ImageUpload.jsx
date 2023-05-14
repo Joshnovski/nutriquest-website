@@ -35,7 +35,7 @@ export const uploadImage = (
   );
 };
 
-export const uploadPostImage = (file) => {
+export const uploadPostImage = (file, setPostImage, setProgress) => {
   const postPicsRef = ref(storage, `postImages/${file.name}`);
   const uploadTask = uploadBytesResumable(postPicsRef, file);
 
@@ -52,7 +52,9 @@ export const uploadPostImage = (file) => {
       console.error(err);
     },
     () => {
-      getDownloadURL(uploadTask.snapshot.ref).then((response) => {});
+      getDownloadURL(uploadTask.snapshot.ref).then((response) => {
+        setPostImage(response);
+      });
     }
   );
 };
