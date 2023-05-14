@@ -1,18 +1,18 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState } from "react";
 import { getCurrentUser } from "../api/FirestoreAPI";
 import Topbar from "../components/common/Topbar";
-import Profile from '../pages/Profile';
+import Profile from "../pages/Profile";
 
 export default function ProfileLayout() {
-    const [currentUser, setCurrentUser] = useState({});
+  const [currentUser, setCurrentUser] = useState({});
 
-    useMemo(() => {
-        getCurrentUser(setCurrentUser);
-    }, []);
+  useMemo(() => {
+    getCurrentUser(setCurrentUser);
+  }, []);
   return (
     <div>
-        <Topbar />
-        <Profile currentUser={currentUser} />
+      <Topbar currentUser={currentUser} />
+      <Profile currentUser={currentUser} />
     </div>
   );
 }

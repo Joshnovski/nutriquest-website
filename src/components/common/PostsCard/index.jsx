@@ -9,11 +9,13 @@ import {
 } from "../../../api/FirestoreAPI";
 import LikeButton from "../LikeButton";
 import "./index.scss";
+import { Modal } from "antd";
 
 export default function PostsCard({ posts, id, getEditData }) {
   let navigate = useNavigate();
   const [currentUser, setCurrentUser] = useState({});
   const [allUsers, setAllUsers] = useState([]);
+  const [imageModal, setImageModal] = useState(false);
   const [isConnected, setIsConnected] = useState(false);
   useMemo(() => {
     getCurrentUser(setCurrentUser);
@@ -46,7 +48,7 @@ export default function PostsCard({ posts, id, getEditData }) {
 
         <img
           alt="profile-image"
-          className="post-image"
+          className="profile-image"
           src={
             allUsers
               .filter((item) => item.id === posts.userID)
@@ -70,14 +72,40 @@ export default function PostsCard({ posts, id, getEditData }) {
           <p className="timestamp">{posts.timeStamp}</p>
         </div>
       </div>
-      {posts.postImage ? <img src={posts.postImage} alt="post-image" /> : <></>}
-      <p className="status">{posts.status}</p>
+      {posts.postImage ? (
+        <img
+          onClick={() => setImageModal(true)}
+          src={posts.postImage}
+          className="post-image"
+          alt="post-image"
+        />
+      ) : (
+        <></>
+      )}
+      <p
+        className="status"
+        dangerouslySetInnerHTML={{ __html: posts.status }}
+      ></p>
 
       <LikeButton
         userId={currentUser?.id}
         postId={posts.id}
         currentUser={currentUser}
       />
+      <Modal
+        centered
+        open={imageModal}
+        onOk={() => setImageModal(false)}
+        onCancel={() => setImageModal(false)}
+        footer={[]}
+      >
+        <img
+          onClick={() => setImageModal(true)}
+          src={posts.postImage}
+          className="post-image modal"
+          alt="post-image"
+        />
+      </Modal>
     </div>
   ) : (
     <></>

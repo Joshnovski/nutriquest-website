@@ -9,6 +9,17 @@
   resize: none;
 }
 
+.ql-container.ql-snow {
+  border: none !important;
+  height: 100px;
+  font-size: 20px;
+  font-family: system-ui;
+}
+
+.ql-toolbar.ql-snow {
+  border: none !important;
+}
+
 .model-main .ant-modal-content {
   background-color: #343434;
 }
