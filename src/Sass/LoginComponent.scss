@@ -1,13 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #8ab267 !important;
   height: 200px;
-  .nutriquestLogo {
-    width: 60px;
-    margin-left: 20px;
-    margin-top: 20px;
-  }
 }
 .block-positioning {
   display: flex;
@@ -16,11 +10,11 @@ body {
   align-items: center;
 }
 .login-wrapper {
-  background-color: #343434 !important;
-  width: 450px;
-  min-height: auto;
+  background-color: white !important;
+  width: 650px;
+  min-height: 500px;
+  margin: 120px 250px;
   border-radius: 10px;
-  margin: 10px 250px;
   justify-content: center;
   align-items: center;
 
@@ -29,18 +23,18 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: #c0c0c0;
   }
 
   .heading {
-    font-family: system-ui;
-    font-weight: 500;
-    color: white;
-    margin-right: 224px;
+    font-family: Inter;
+    font-weight: 700;
+    color: #343434;
+    margin-right: 440px;
+    font-size: 35px;
   }
 
   .heading-register {
-    font-family: system-ui;
+    font-family: Inter;
     font-weight: 500;
     font-size: 25px;
     color: white;
@@ -53,45 +47,50 @@ body {
   }
 
   .sub-heading {
-    margin-top: -20px;
+    margin-top: -10px;
     font-family: system-ui;
+    margin-right: 150px;
+    font-size: 20px;
+    color: #575757;
   }
 
   .login-btn {
     width: 350px;
-    height: 40px;
+    height: 70px;
     cursor: pointer;
-    background-color: #5e5e5e;
+    background-color: #65874a;
     border-radius: 50px;
     outline: none;
     border: none;
     font-family: system-ui;
     font-weight: 600;
     color: white;
-    font-size: 16px;
-    margin-top: 20px;
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 20px;
   }
 
   .login-btn:hover {
-    background-color: white;
-    color: #343434;
+    background-color: rgb(240, 240, 240);
+    border: 1px solid #a1a1a1;
+    color: #808080;
   }
 
   .auth-inputs {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 350px;
+    width: 550px;
 
     .common-input {
       height: 30px;
-      padding: 10px;
-      background-color: #343434;
+      padding: 20px;
+      background-color: white;
       outline: none;
-      border: 1px solid #5e5e5e;
-      color: #c0c0c0;
+      border: 1px solid #a1a1a1;
+      color: #808080;
       border-radius: 5px;
-      font-size: 16px;
+      font-size: 26px;
       margin: 8px 0px;
     }
     .common-input:focus {
@@ -104,7 +103,7 @@ body {
 
     ::placeholder {
       font-family: system-ui;
-      font-size: 16px;
+      font-size: 26px;
       color: #808080;
     }
   }
@@ -114,7 +113,7 @@ body {
     position: relative;
     outline: 0;
     border: 0;
-    color: #65874a;
+    color: #343434;
     text-align: center;
     height: 1.5em;
     opacity: 1;
@@ -122,23 +121,23 @@ body {
       content: "";
       // use the linear-gradient for the fading effect
       // use a solid background color for a solid bar
-      background: linear-gradient(to right, transparent, #5e5e5e, transparent);
+      background: #a1a1a1;
       position: absolute;
-      left: 0;
+      left: 50%;
       top: 50%;
-      width: 100%;
-      height: 1px;
+      width: calc(100% - 16%);
+      height: 0.2px;
+      transform: translate(-50%, -50%);
     }
     &:after {
       content: attr(data-content);
       position: relative;
       display: inline-block;
-      color: #5e5e5e;
       padding: 0 0.5em;
       line-height: 1.5em;
       // this is really the only tricky part, you need to specify the background color of the container element...
-      color: #5e5e5e;
-      background-color: #343434;
+      color: #a1a1a1;
+      background-color: white;
     }
   }
 
@@ -147,7 +146,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: #c0c0c0;
+    color: #575757;
+    margin-top: 20px;
 
     .google-btn {
       width: 300px !important;
@@ -155,18 +155,43 @@ body {
 
     .join-now {
       color: #8ab267;
-      font-family: system-ui;
+      font-family: Inter;
+      font-weight: 500;
       cursor: pointer;
     }
 
     .go-to-signup {
+      margin-top: 30px;
       margin-left: 11px;
       font-size: 14px;
     }
   }
 
   .join-now:hover {
-    color: White;
     text-decoration: underline;
+    font-weight: 800;
+  }
+}
+
+.promotion-header {
+  background-color: rgb(255, 255, 255) !important;
+  width: 100%;
+  min-height: 50px;
+  display: flex;
+  gap: 20px;
+  color: #343434;
+  font-family: Inter;
+
+  .nutriquest-name {
+    font-size: 40px;
+    margin-top: 12px;
+    margin-bottom: 1px;
+  }
+
+  .nutriquestLogo {
+    width: 70px;
+    height: 70px;
+
+    margin: 7px 0px 7px 20px;
   }
 }
