@@ -2,7 +2,7 @@ import React, { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { onLogout } from "../../../api/AuthAPI";
 import { getCurrentUser } from "../../../api/FirestoreAPI";
-import Button from "../Button";
+import Button from "c:/Users/joshm/Desktop/Coding/nutriquest-website/src/components/common/Button/index";
 import "./index.scss";
 
 export default function ProfilePopup() {
