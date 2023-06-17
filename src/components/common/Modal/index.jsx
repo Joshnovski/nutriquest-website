@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Modal, Progress } from "antd";
+import { Button as AntdButton, Modal, Progress } from "antd";
 import { AiOutlinePicture } from "react-icons/ai";
 import ReactQuill from "react-quill";
 import "./index.scss";
@@ -38,7 +38,7 @@ const ModalComponent = ({
           setCurrentPost({});
         }}
         footer={[
-          <Button
+          <AntdButton
             onClick={isEdit ? updateStatus : sendStatus}
             key="submit"
             type="primary"
@@ -46,7 +46,7 @@ const ModalComponent = ({
             style={{ backgroundColor: status.length > 0 ? "#8ab267" : "" }}
           >
             {isEdit ? "Update" : "Post"}
-          </Button>,
+          </AntdButton>,
         ]}
       >
         <hr></hr>
