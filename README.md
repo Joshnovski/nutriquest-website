@@ -10,7 +10,7 @@
   <h3 align="center">NutriQuest</h3>
 
   <p align="center">
-    Simplify the process of learning data structures and algorithms. Learn at your own pace by controlling your exploration of a variety of algorithms, each with visible code and dynamic animations to assist in the learning experience.
+    Connect with others passionate about health and exercise. Dive into a community where you can post, comment, like, and share workout plans. Whether you're looking to exchange tips, or draw workout inspiration, this app is your go-to platform. Upcoming features include macro calculations with barcode and AI image scanning, a calorie unit conversion calculator, and a streamlined workout creation menu. 
     <br />
     <br />
     <br />
